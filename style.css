@@ -1,0 +1,459 @@
+:root {
+  --bg-void: #050505;
+  --bg-panel: #0d0d0f;
+  --bg-elevated: #141418;
+  --blood: #b80c09;
+  --blood-bright: #e61919;
+  --blood-glow: rgba(184, 12, 9, 0.35);
+  --bone: #f2f2f2;
+  --ash: #9e9ea6;
+  --border-dark: #242429;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-void);
+  color: var(--bone);
+  font-family: "Space Grotesk", sans-serif;
+  line-height: 1.65;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Efek Horor Vignette & Tekstur Halus */
+.vignette-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at center, transparent 45%, rgba(0, 0, 0, 0.92) 100%);
+  z-index: 1;
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: repeating-radial-gradient(#ffffff 0 0.0001%, #000000 0 0.0002%);
+  background-size: 60px 60px;
+  z-index: 1;
+}
+
+.site-header,
+.container,
+.site-footer {
+  position: relative;
+  z-index: 2;
+}
+
+/* Header & Tipografi Abstrak Terbaca */
+.site-header {
+  border-bottom: 1px solid var(--border-dark);
+  background: linear-gradient(180deg, #0d0404 0%, #050505 100%);
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.creator-banner {
+  background: var(--blood);
+  color: var(--bone);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  padding: 6px 12px;
+  text-transform: uppercase;
+}
+
+.header-main {
+  padding: 34px 20px 20px;
+}
+
+.glitch-title {
+  font-family: "Cinzel Decorative", serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  letter-spacing: 0.14em;
+  color: var(--bone);
+  text-shadow: 2px 0 var(--blood-bright), -2px 0 rgba(255, 255, 255, 0.25);
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: var(--ash);
+  font-size: 0.98rem;
+  letter-spacing: 0.05em;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* Navigasi Halaman */
+.page-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 16px 0;
+}
+
+.nav-btn {
+  background: var(--bg-panel);
+  color: var(--ash);
+  border: 1px solid var(--border-dark);
+  padding: 10px 16px;
+  font-family: "Syne", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.nav-btn:hover {
+  border-color: var(--blood);
+  color: var(--bone);
+}
+
+.nav-btn.active {
+  background: var(--blood);
+  border-color: var(--blood-bright);
+  color: var(--bone);
+  box-shadow: 0 0 18px var(--blood-glow);
+}
+
+/* Kontainer Utama & Sistem Halaman */
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+}
+
+.page {
+  display: none;
+  animation: fadeInPage 0.35s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Komponen Visual */
+.warning-box {
+  border-left: 4px solid var(--blood-bright);
+  background: linear-gradient(90deg, rgba(184, 12, 9, 0.16), rgba(13, 13, 15, 0.9));
+  padding: 18px 22px;
+  margin-bottom: 26px;
+}
+
+.badge-red {
+  display: inline-block;
+  background: var(--blood);
+  color: var(--bone);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  padding: 3px 9px;
+  margin-bottom: 8px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dark-panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-dark);
+  padding: 24px;
+  position: relative;
+}
+
+.dark-panel h2,
+.dark-panel h3,
+.section-head h2 {
+  font-family: "Syne", sans-serif;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+  color: var(--bone);
+}
+
+.dark-panel p {
+  color: var(--ash);
+  margin-bottom: 18px;
+}
+
+.action-btn {
+  background: transparent;
+  color: var(--bone);
+  border: 1px solid var(--blood-bright);
+  padding: 11px 18px;
+  font-family: "Syne", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.action-btn:hover {
+  background: var(--blood);
+  box-shadow: 0 0 18px var(--blood-glow);
+}
+
+.archive-metrics {
+  list-style: none;
+  margin-bottom: 16px;
+}
+
+.archive-metrics li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-dark);
+  font-size: 0.88rem;
+}
+
+.text-red {
+  color: var(--blood-bright);
+}
+
+.whisper-note {
+  font-size: 0.84rem;
+  font-style: italic;
+}
+
+/* Ensiklopedia Grid & Filter */
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.section-head p {
+  color: var(--ash);
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter-bar input,
+.filter-bar select {
+  background: var(--bg-panel);
+  color: var(--bone);
+  border: 1px solid var(--border-dark);
+  padding: 10px 14px;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.filter-bar input:focus,
+.filter-bar select:focus {
+  outline: none;
+  border-color: var(--blood-bright);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 18px;
+}
+
+.entry-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-dark);
+  padding: 20px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.entry-card:hover {
+  border-color: var(--blood-bright);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(184, 12, 9, 0.22);
+}
+
+.entry-code {
+  font-size: 0.75rem;
+  color: var(--blood-bright);
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.entry-card h3 {
+  font-family: "Syne", sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.entry-card p {
+  color: var(--ash);
+  font-size: 0.92rem;
+  margin-bottom: 16px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--bone);
+  border-top: 1px solid var(--border-dark);
+  padding-top: 10px;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.86);
+  display: none;
+  place-items: center;
+  padding: 20px;
+  z-index: 10;
+}
+
+.modal.open {
+  display: grid;
+}
+
+.modal-content {
+  background: var(--bg-elevated);
+  border: 1px solid var(--blood);
+  max-width: 620px;
+  width: 100%;
+  padding: 28px;
+  position: relative;
+  box-shadow: 0 0 35px rgba(184, 12, 9, 0.35);
+}
+
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: 1px solid var(--border-dark);
+  color: var(--bone);
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background: var(--blood);
+}
+
+.modal-meta {
+  color: var(--ash);
+  font-size: 0.88rem;
+}
+
+.modal-divider {
+  height: 1px;
+  background: var(--border-dark);
+  margin: 16px 0;
+}
+
+.modal-content h4 {
+  font-family: "Syne", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  color: var(--blood-bright);
+  margin-top: 14px;
+  margin-bottom: 4px;
+}
+
+.defense-text {
+  color: var(--bone);
+}
+
+/* Kuis Simulasi */
+.quiz-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: var(--bg-elevated);
+  color: var(--bone);
+  border: 1px solid var(--border-dark);
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.quiz-option:hover {
+  border-color: var(--blood-bright);
+  background: rgba(184, 12, 9, 0.14);
+}
+
+/* Manifesto */
+.blood-quote {
+  border-left: 3px solid var(--blood-bright);
+  padding-left: 16px;
+  font-style: italic;
+  color: var(--bone);
+  margin: 20px 0;
+}
+
+.signature-block {
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-dark);
+}
+
+.signature-block h3 {
+  font-family: "Cinzel Decorative", serif;
+  color: var(--blood-bright);
+  letter-spacing: 0.08em;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--border-dark);
+  text-align: center;
+  padding: 24px 16px;
+  color: var(--ash);
+  font-size: 0.85rem;
+}
+
+.creator-credit {
+  color: var(--bone);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
