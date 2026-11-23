@@ -3,135 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CODEX OBSCURA — Ensiklopedia Dark Psikologi</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Space+Grotesk:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <title>CODEX OBSCURA</title>
+  <meta name="theme-color" content="#b80c09" />
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./gaya.css" />
 </head>
 <body>
-  <div class="noise-overlay"></div>
-  <div class="vignette-overlay"></div>
-
-  <header class="site-header">
-    <div class="creator-banner">ARSIP TERLARANG // CIPTAAN AYAJO ALLAM SYAH</div>
-    <div class="header-main">
-      <h1 class="glitch-title" data-text="CODEX OBSCURA">CODEX OBSCURA</h1>
-      <p class="subtitle">Ensiklopedia Manipulasi, Bayangan Pikiran, dan Ilusi Kendali Manusia</p>
-    </div>
-
-    <!-- Navigasi Tipe Halaman -->
-    <nav class="page-nav" aria-label="Navigasi Halaman">
-      <button class="nav-btn active" data-page="beranda">01. GERBANG ARSIP</button>
-      <button class="nav-btn" data-page="ensiklopedia">02. ENSIKLOPEDIA</button>
-      <button class="nav-btn" data-page="simulasi">03. UJI KESADARAN</button>
-      <button class="nav-btn" data-page="catatan">04. MANIFESTO</button>
+  <header>
+    <p>ARSIP TERLARANG // CIPTAAN AYAJO ALLAM SYAH</p>
+    <h1>CODEX OBSCURA</h1>
+    <p>Ensiklopedia Manipulasi, Bayangan Pikiran, dan Ilusi Kendali Manusia</p>
+    <nav>
+      <a href="#gerbang">01. GERBANG ARSIP</a>
+      <a href="#ensiklopedia">02. ENSIKLOPEDIA</a>
+      <a href="#uji">03. UJI KESADARAN</a>
+      <a href="#manifesto">04. MANIFESTO</a>
     </nav>
   </header>
 
-  <main class="container">
-    <!-- HALAMAN 1: BERANDA -->
-    <section id="page-beranda" class="page active">
-      <div class="warning-box">
-        <span class="badge-red">PERINGATAN KOGNITIF</span>
-        <p>
-          "Pikiran manusia bukan benteng yang terkunci—ia adalah ruangan gelap yang pintunya sering dibukakan sendiri oleh pemiliknya."
-        </p>
-      </div>
-
-      <div class="hero-grid">
-        <article class="dark-panel">
-          <h2>APA ITU DARK PSIKOLOGI?</h2>
-          <p>
-            Dark psikologi mempelajari pola tersembunyi di balik manipulasi emosional, persuasi koersif, dan eksploitasi celah kognitif. Di sini, konsep tersebut dibedah bukan untuk melukai, melainkan agar kamu mampu mengenali topeng sebelum terperangkap di dalamnya.
-          </p>
-          <button class="action-btn" data-goto="ensiklopedia">BUKA ARSIP FENOMENA →</button>
-        </article>
-
-        <article class="dark-panel stat-panel">
-          <h3>INDEKS ARSIP TERCATAT</h3>
-          <ul class="archive-metrics">
-            <li><span>TOTAL ENTITAS TAKTIK</span><strong>08 BAB</strong></li>
-            <li><span>STATUS KLASIFIKASI</span><strong class="text-red">TERBUKA / MENTAH</strong></li>
-            <li><span>ARSIPARIS</span><strong>AYAJO ALLAM SYAH</strong></li>
-          </ul>
-          <p class="whisper-note">Pilih halaman di atas untuk menelusuri bab demi bab.</p>
-        </article>
-      </div>
+  <main id="app">
+    <section id="gerbang">
+      <h2>01. GERBANG ARSIP</h2>
+      <p>Akses terbuka ke catatan fenomena psikologis tersembunyi.</p>
     </section>
 
-    <!-- HALAMAN 2: ENSIKLOPEDIA -->
-    <section id="page-ensiklopedia" class="page">
-      <div class="section-head">
-        <div>
-          <h2>INDEKS FENOMENA GELAP</h2>
-          <p>Klik salah satu kartu arsip untuk membedah mekanisme dan cara menangkalnya.</p>
-        </div>
-        <div class="filter-bar">
-          <input type="text" id="searchInput" placeholder="Cari taktik (misal: Gaslighting)..." />
-          <select id="categoryFilter">
-            <option value="ALL">Semua Kategori</option>
-            <option value="Distorsi Realitas">Distorsi Realitas</option>
-            <option value="Jerat Emosi">Jerat Emosi</option>
-            <option value="Kendali Sosial">Kendali Sosial</option>
-          </select>
-        </div>
-      </div>
-
-      <div id="encyclopediaGrid" class="cards-grid"></div>
+    <section id="ensiklopedia">
+      <h2>INDEKS FENOMENA GELAP</h2>
+      <p>Klik salah satu kartu arsip untuk membedah mekanisme dan cara menangkalnya.</p>
+      <div id="daftar-arsip"></div>
     </section>
 
-    <!-- HALAMAN 3: UJI KESADARAN / DETEKSI MANIPULASI -->
-    <section id="page-simulasi" class="page">
-      <div class="section-head">
-        <h2>RUANG UJI KERENTANAN PIKIRAN</h2>
-        <p>Jawab skenario singkat ini untuk melihat seberapa peka instingmu membaca pola manipulasi.</p>
-      </div>
-
-      <div id="quizContainer" class="dark-panel quiz-box"></div>
+    <section id="uji">
+      <h2>03. UJI KESADARAN</h2>
+      <p>Evaluasi pola persepsi dan kerentanan terhadap ilusi kendali.</p>
     </section>
 
-    <!-- HALAMAN 4: MANIFESTO & KREDIT -->
-    <section id="page-catatan" class="page">
-      <div class="dark-panel manifesto-box">
-        <span class="badge-red">DOKUMEN ASAL</span>
-        <h2>MANIFESTO RUANG BAYANGAN</h2>
-        <p>
-          Setiap manusia membawa sisi terang yang dipamerkan ke dunia, dan sisi gelap yang disembunyikan di balik senyum sopan. Memahami psikologi gelap adalah menyalakan lentera di lorong paling sunyi dalam kepala kita sendiri.
-        </p>
-        <blockquote class="blood-quote">
-          “Ketika kamu memahami cara kerja ilusi, pesulap kehilangan kuasanya atas matamu.”
-        </blockquote>
-        <div class="signature-block">
-          <p>Dirancang &amp; Ditulis oleh:</p>
-          <h3>Ciptaan Ayajo Allam Syah</h3>
-        </div>
-      </div>
+    <section id="manifesto">
+      <h2>04. MANIFESTO</h2>
+      <p>Prinsip dokumentasi dan kewaspadaan kognitif.</p>
     </section>
   </main>
 
-  <!-- MODAL DETAIL ENSIKLOPEDIA -->
-  <div id="detailModal" class="modal" aria-hidden="true">
-    <div class="modal-content">
-      <button id="closeModal" class="close-btn" aria-label="Tutup">✕</button>
-      <span id="modalCode" class="badge-red">ARSIP #00</span>
-      <h2 id="modalTitle">Judul Fenomena</h2>
-      <p id="modalCategory" class="modal-meta">Kategori</p>
-      <div class="modal-divider"></div>
-      <h4>DEFINISI &amp; MEKANISME</h4>
-      <p id="modalDesc"></p>
-      <h4>TANDA-TANDA DI LAPANGAN</h4>
-      <p id="modalSigns"></p>
-      <h4>PENANGKAL KOGNITIF</h4>
-      <p id="modalDefense" class="defense-text"></p>
-    </div>
-  </div>
-
-  <footer class="site-footer">
-    <p>CODEX OBSCURA // ENSIKLOPEDIA DARK PSIKOLOGIS</p>
-    <p class="creator-credit">Ciptaan Ayajo Allam Syah</p>
-  </footer>
-
-  <script src="script.js"></script>
+  <script src="./script.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker
+          .register("./sw.js")
+          .then((reg) => console.log("SW terdaftar:", reg.scope))
+          .catch((err) => console.error("SW gagal:", err));
+      });
+    }
+  </script>
 </body>
 </html>
