@@ -6,53 +6,153 @@
   <title>CODEX OBSCURA</title>
   <meta name="theme-color" content="#b80c09" />
   <link rel="manifest" href="./manifest.json" />
-  <link rel="stylesheet" href="./style.css" />
   <link rel="stylesheet" href="./gaya.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #050505;
+      color: #f3ecec;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .top-bar {
+      background-color: #7a0705;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-align: center;
+      padding: 8px 12px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    h1 {
+      font-size: 38px;
+      line-height: 1.1;
+      letter-spacing: 3px;
+      color: #ffffff;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .subtitle {
+      color: #b8b2b2;
+      font-size: 15px;
+      max-width: 520px;
+      margin: 0 auto 24px auto;
+    }
+
+    .nav-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .nav-btn {
+      display: block;
+      text-decoration: none;
+      background-color: #111111;
+      color: #e5dede;
+      border: 1px solid #262626;
+      padding: 12px 14px;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .nav-btn.active {
+      background-color: #8f0a08;
+      border-color: #b80c09;
+      color: #ffffff;
+    }
+
+    .card {
+      background-color: #0d0d0d;
+      border: 1px solid #222222;
+      border-left: 3px solid #8f0a08;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+
+    .card h2 {
+      font-size: 18px;
+      color: #ffffff;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .card p {
+      color: #c8c0c0;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <p>ARSIP TERLARANG // CIPTAAN AYAJO ALLAM SYAH</p>
-    <h1>CODEX OBSCURA</h1>
-    <p>Ensiklopedia Manipulasi, Bayangan Pikiran, dan Ilusi Kendali Manusia</p>
-    <nav>
-      <a href="#gerbang">01. GERBANG ARSIP</a>
-      <a href="#ensiklopedia">02. ENSIKLOPEDIA</a>
-      <a href="#uji">03. UJI KESADARAN</a>
-      <a href="#manifesto">04. MANIFESTO</a>
-    </nav>
-  </header>
+  <div class="container">
+    <div class="top-bar">ARSIP TERLARANG // CIPTAAN AYAJO ALLAM SYAH</div>
 
-  <main id="app">
-    <section id="gerbang">
-      <h2>01. GERBANG ARSIP</h2>
-      <p>Akses terbuka ke catatan fenomena psikologis tersembunyi.</p>
-    </section>
+    <header>
+      <h1>CODEX OBSCURA</h1>
+      <p class="subtitle">Ensiklopedia Manipulasi, Bayangan Pikiran, dan Ilusi Kendali Manusia</p>
 
-    <section id="ensiklopedia">
-      <h2>INDEKS FENOMENA GELAP</h2>
-      <p>Klik salah satu kartu arsip untuk membedah mekanisme dan cara menangkalnya.</p>
-      <div id="daftar-arsip"></div>
-    </section>
+      <nav class="nav-grid">
+        <a class="nav-btn" href="#gerbang">01. GERBANG ARSIP</a>
+        <a class="nav-btn" href="#ensiklopedia">02. ENSIKLOPEDIA</a>
+        <a class="nav-btn" href="#uji">03. UJI KESADARAN</a>
+        <a class="nav-btn active" href="#manifesto">04. MANIFESTO</a>
+      </nav>
+    </header>
 
-    <section id="uji">
-      <h2>03. UJI KESADARAN</h2>
-      <p>Evaluasi pola persepsi dan kerentanan terhadap ilusi kendali.</p>
-    </section>
+    <main id="app">
+      <section class="card" id="gerbang">
+        <h2>01. GERBANG ARSIP</h2>
+        <p>Akses terbuka ke catatan fenomena psikologis tersembunyi.</p>
+      </section>
 
-    <section id="manifesto">
-      <h2>04. MANIFESTO</h2>
-      <p>Prinsip dokumentasi dan kewaspadaan kognitif.</p>
-    </section>
-  </main>
+      <section class="card" id="ensiklopedia">
+        <h2>02. ENSIKLOPEDIA</h2>
+        <p>Indeks fenomena gelap, mekanisme pengaruh, dan pola kendali.</p>
+        <div id="daftar-arsip"></div>
+      </section>
+
+      <section class="card" id="uji">
+        <h2>03. UJI KESADARAN</h2>
+        <p>Evaluasi pola persepsi dan kerentanan terhadap ilusi kendali.</p>
+      </section>
+
+      <section class="card" id="manifesto">
+        <h2>04. MANIFESTO</h2>
+        <p>Prinsip dokumentasi dan kewaspadaan kognitif.</p>
+      </section>
+    </main>
+  </div>
 
   <script src="./script.js"></script>
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
-        navigator.serviceWorker
-          .register("./sw.js")
-          .then((reg) => console.log("SW terdaftar:", reg.scope))
-          .catch((err) => console.error("SW gagal:", err));
+        navigator.serviceWorker.register("./sw.js").catch(() => {});
       });
     }
   </script>
